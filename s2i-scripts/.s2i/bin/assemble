@@ -10,6 +10,13 @@ config_s2i
 
 ######## CUSTOMIZATION STARTS HERE ############
 
+# Restore the .m2 folder
+
+if [ -d /tmp/artifacts/.m2 ]; then
+echo "---> Restoring maven artifacts..."
+mv /tmp/artifacts/.m2 ${HOME}/
+fi
+
 echo "---> Installing application source"
 cp -Rf /tmp/src/*.html ./
 
